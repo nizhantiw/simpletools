@@ -1,0 +1,31 @@
+import React, { useState } from 'react';
+
+const ColorfulText = () => {
+  const [inputValue, setInputValue] = useState('');
+  const [textColor, setTextColor] = useState('');
+
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  };
+
+  const handleColorChange = () => {
+    setTextColor(inputValue);
+    setInputValue('');
+  };
+
+  return (
+    <div>
+      <h2>Colorful Text</h2>
+      <input
+        type="text"
+        value={inputValue}
+        onChange={handleInputChange}
+        placeholder="Enter a color name"
+      />
+      <button onClick={handleColorChange}>Change Color</button>
+      <p style={{ color: textColor }}>This text will change color!</p>
+    </div>
+  );
+};
+
+export default ColorfulText;
